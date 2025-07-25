@@ -12,6 +12,9 @@ namespace F10Y.L0004
 
 #pragma warning disable IDE1006 // Naming Styles
 
+        private static IAuthors _Authors => Instances.Authors;
+
+
         [Ignore]
         public Raw.IAuthorSets _Raw => Raw.AuthorSets.Instance;
 
@@ -20,5 +23,11 @@ namespace F10Y.L0004
 
         /// <inheritdoc cref="Raw.IAuthorSets.N_001"/>
         public string[] Default => _Raw.N_001;
+
+        public string[] All =>
+        [
+            _Authors._1NFNTE_R0CK,
+            _Authors.DCoats,
+        ];
     }
 }

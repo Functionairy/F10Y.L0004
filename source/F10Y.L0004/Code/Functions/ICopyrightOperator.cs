@@ -29,6 +29,19 @@ namespace F10Y.L0004
             return output;
         }
 
+        public string Get_CopyrightText(
+            string copyrightHolder,
+            DateOnly copyrightDate)
+        {
+            var copyrightYear = Instances.DateOnlyOperator.Get_Year(copyrightDate);
+
+            var output = this.Get_CopyrightText(
+                copyrightHolder,
+                copyrightYear);
+
+            return output;
+        }
+
         public string Get_CopyrightText(string copyrightHolder)
         {
             var copyrightYear = Instances.NowOperator.Get_CurrentYear();

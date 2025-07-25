@@ -1,7 +1,8 @@
 # F10Y.L0004
-Organizational catch-all library.
+Organizational catch-all library for Functionairy.
 
 Opinions: F10Y-organization
+.NET Version: LATEST
 
 
 ## Instance Placement Progression

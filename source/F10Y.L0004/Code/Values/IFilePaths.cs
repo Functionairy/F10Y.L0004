@@ -1,26 +1,20 @@
 using System;
 
 using F10Y.T0003;
+using F10Y.T0011;
 
 
 namespace F10Y.L0004
 {
     [ValuesMarker]
-    public partial interface IFilePaths
+    public partial interface IFilePaths :
+        L000.IFilePaths
     {
-        /// <summary>
-        /// <para><value>C:\Temp\Output.csproj</value></para>
-        /// </summary>
-        public string Output_ProjectFilePath => @"C:\Temp\Output.csproj";
+#pragma warning disable IDE1006 // Naming Styles
 
-        /// <summary>
-        /// <para><value>C:\Temp\Output.txt</value></para>
-        /// </summary>
-        public string Output_TextFilePath => @"C:\Temp\Output.txt";
+        [Ignore]
+        public L000.IFilePaths _L000 => L000.FilePaths.Instance;
 
-        /// <summary>
-        /// <para><value>C:\Temp\Output.xml</value></para>
-        /// </summary>
-        public string Output_XmlFilePath => @"C:\Temp\Output.xml";
+#pragma warning restore IDE1006 // Naming Styles
     }
 }

@@ -72,7 +72,7 @@ namespace F10Y.L0004
             Instances.ProjectGroupElementLabels.ProjectReferences);
 
         public Action<XElement> Set_Microsoft_NET_Sdk => Instances.XElementOperator.Get_Set_Attribute_Value(
-            Instances.ProjectAttributeNames.SDK,
+            Instances.ProjectAttributeNames.Sdk,
             Instances.SdkNames.Microsoft_NET_Sdk);
     }
 }
