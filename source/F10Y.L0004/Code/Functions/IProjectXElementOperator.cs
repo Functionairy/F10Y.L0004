@@ -150,11 +150,6 @@ namespace F10Y.L0004
                 projectElement,
                 this.Acquire_PropertyGroup_Main);
 
-        public For_Has.Has<string> Has_TargetFramework(XElement projectElement)
-            => Instances.XElementOperator.Has_ChildOfChild_Value_First(
-                projectElement,
-                Instances.ProjectElementNames.TargetFramework);
-
         public new XElement Set_TargetFramework(
             XElement projectElement,
             string targetFramework)
