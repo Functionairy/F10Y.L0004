@@ -7,18 +7,24 @@ using F10Y.T0011;
 
 namespace F10Y.L0004
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <remarks>
+    /// <inheritdoc cref="Documentation.Project_SelfDescription" path="/summary"/>
+    /// </remarks>
     [FunctionsMarker]
     public partial interface IXElementOperator :
         IXContainerOperator,
-        F10Y.L0000.IXElementOperator
+        L0000.IXElementOperator
     {
 #pragma warning disable IDE1006 // Naming Styles
 
         [Ignore]
-        public new IXContainerOperator _XContainerOperator => XContainerOperator.Instance;
+        new IXContainerOperator _XContainerOperator => XContainerOperator.Instance;
 
         [Ignore]
-        public new F10Y.L0000.IXElementOperator _F10Y_L0000 => F10Y.L0000.XElementOperator.Instance;
+        new L0000.IXElementOperator _L0000 => L0000.XElementOperator.Instance;
 
 #pragma warning restore IDE1006 // Naming Styles
 

@@ -5,6 +5,12 @@ using F10Y.T0003;
 
 namespace F10Y.L0004.L000
 {
+    /// <summary>
+    /// Useful file paths. (Output, etc.)
+    /// </summary>
+    /// <remarks>
+    /// <inheritdoc cref="Documentation.Project_SelfDescription" path="/summary"/>
+    /// </remarks>
     [ValuesMarker]
     public partial interface IFilePaths
     {

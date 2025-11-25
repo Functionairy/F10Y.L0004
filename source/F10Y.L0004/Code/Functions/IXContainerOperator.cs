@@ -10,17 +10,17 @@ namespace F10Y.L0004
 {
     [FunctionsMarker]
     public partial interface IXContainerOperator :
-        F10Y.L0000.IXContainerOperator
+        L0000.IXContainerOperator
     {
 #pragma warning disable IDE1006 // Naming Styles
 
         [Ignore]
-        public F10Y.L0000.IXContainerOperator _F10Y_L0000 => F10Y.L0000.XContainerOperator.Instance;
+        L0000.IXContainerOperator _L0000 => L0000.XContainerOperator.Instance;
 
 #pragma warning restore IDE1006 // Naming Styles
 
 
-        public XElement Acquire_Child<TContainer>(
+        XElement Acquire_Child<TContainer>(
             TContainer parent,
             Func<TContainer, For_Has.Has<XElement>> has_Child_Operation,
             Func<XElement> child_Constructor)
@@ -43,7 +43,7 @@ namespace F10Y.L0004
             }
         }
 
-        public XElement Acquire_Child<TContainer>(
+        XElement Acquire_Child<TContainer>(
             TContainer parent,
             Func<TContainer, For_Has.Has<XElement>> has_Child_Operation,
             string childName)
@@ -66,7 +66,7 @@ namespace F10Y.L0004
             }
         }
 
-        public XElement Acquire_ChildOfChild<TContainer>(
+        XElement Acquire_ChildOfChild<TContainer>(
             TContainer parent,
             Func<TContainer, XElement> acquire_Child_Operation,
             Func<XElement, For_Has.Has<XElement>> has_ChildOfChild_Operation,
@@ -83,7 +83,7 @@ namespace F10Y.L0004
             return output;
         }
 
-        public XElement Acquire_ChildOfChild<TContainer>(
+        XElement Acquire_ChildOfChild<TContainer>(
             TContainer parent,
             Func<TContainer, XElement> acquire_Child_Operation,
             Func<XElement, XElement> acquire_ChildOfChild_Operation)
@@ -95,7 +95,7 @@ namespace F10Y.L0004
             return output;
         }
 
-        public For_Has.Has<XElement> Has_Child(
+        For_Has.Has<XElement> Has_Child(
             XContainer container,
             string childName)
         {
@@ -111,7 +111,7 @@ namespace F10Y.L0004
             return output;
         }
 
-        public For_Has.Has<XElement> Has_Child_First(
+        For_Has.Has<XElement> Has_Child_First(
             XElement element,
             string childName)
         {
@@ -127,7 +127,7 @@ namespace F10Y.L0004
             return output;
         }
 
-        public For_Has.Has<XElement> Has_ChildOfChild_First(
+        For_Has.Has<XElement> Has_ChildOfChild_First(
             XContainer container,
             string childOfChildName)
         {
@@ -143,7 +143,7 @@ namespace F10Y.L0004
             return output;
         }
 
-        public For_Has.Has<TValue> Has_ChildOfChild_Value_First<TValue>(
+        For_Has.Has<TValue> Has_ChildOfChild_Value_First<TValue>(
             XContainer container,
             string childOfChildName,
             Func<XElement, TValue> valueSelector)
@@ -156,7 +156,7 @@ namespace F10Y.L0004
             return output;
         }
 
-        public For_Has.Has<string> Has_ChildOfChild_Value_First(
+        For_Has.Has<string> Has_ChildOfChild_Value_First(
             XContainer container,
             string childOfChildName)
             => this.Has_ChildOfChild_Value_First(
@@ -164,7 +164,7 @@ namespace F10Y.L0004
                 childOfChildName,
                 Instances.XElementOperator.Get_Value_AsString);
 
-        public For_Has.Has<XElement> Has_ChildWithAttributeValue_First(
+        For_Has.Has<XElement> Has_ChildWithAttributeValue_First(
             XContainer container,
             string childName,
             string attributeName,
@@ -184,7 +184,7 @@ namespace F10Y.L0004
             return output;
         }
 
-        public For_Has.Has<XElement> Has_ChildWithChild_First(
+        For_Has.Has<XElement> Has_ChildWithChild_First(
             XContainer container,
             string childName,
             string childOfChildName)

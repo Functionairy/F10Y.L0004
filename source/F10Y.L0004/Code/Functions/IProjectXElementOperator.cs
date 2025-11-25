@@ -1,6 +1,6 @@
 using System;
 using System.Xml.Linq;
-
+using F10Y.L0003;
 using F10Y.T0002;
 using F10Y.T0011;
 
@@ -78,13 +78,13 @@ namespace F10Y.L0004
 
         #region Property Group - Main
 
-        public new XElement Acquire_PropertyGroup_Main(XElement projectElement)
+        new XElement Acquire_PropertyGroup_Main(XElement projectElement)
             => Instances.XElementOperator.Acquire_Child(
                 projectElement,
                 this.Has_PropertyGroup_Main,
                 this.Create_PropertyGroup_Main);
 
-        public XElement Create_PropertyGroup_Main()
+        XElement Create_PropertyGroup_Main()
         {
             var output = Instances.XElementOperator.Create_Element(Instances.ProjectElementNames.PropertyGroup);
 
@@ -96,7 +96,7 @@ namespace F10Y.L0004
             return output;
         }
 
-        public new For_Has.Has<XElement> Has_PropertyGroup_Main(XElement projectElement)
+        new For_Has.Has<XElement> Has_PropertyGroup_Main(XElement projectElement)
         {
             // => This is a Functionairy convention.
             // Is there a property group with the main label?
@@ -123,7 +123,7 @@ namespace F10Y.L0004
             return output;
         }
 
-        public XElement Get_PropertyGroup_Main(XElement projectElement)
+        XElement Get_PropertyGroup_Main(XElement projectElement)
         {
             var has_PropertyGroup_Main = this.Has_PropertyGroup_Main(projectElement);
 
@@ -133,6 +133,81 @@ namespace F10Y.L0004
             }
 
             return has_PropertyGroup_Main;
+        }
+
+        #endregion
+
+        #region PropertyGroup - Package
+
+        XElement Acquire_PropertyGroup_Package(XElement projectElement)
+            => Instances.XElementOperator.Acquire_Child(
+                projectElement,
+                this.Has_PropertyGroup_Package,
+                this.Create_PropertyGroup_Package);
+
+        XElement Create_PropertyGroup_Package()
+        {
+            var output = Instances.XElementOperator.Create_Element(Instances.ProjectElementNames.PropertyGroup);
+
+            Instances.XElementOperator.Add_Attribute(
+                output,
+                Instances.ProjectAttributeNames.Label,
+                Instances.ProjectGroupElementLabels.Package);
+
+            return output;
+        }
+
+        For_Has.Has<XElement> Has_PropertyGroup_Package(XElement projectElement)
+        {
+            // => This is a Functionairy convention.
+            // Is there a property group with the main label?
+            var has_PropertyGroup_WithLabel = Instances.XElementOperator.Has_ChildWithAttributeValue_First(
+                projectElement,
+                Instances.ProjectElementNames.PropertyGroup,
+                Instances.ProjectAttributeNames.Label,
+                Instances.ProjectGroupElementLabels.Package);
+
+            if (has_PropertyGroup_WithLabel)
+            {
+                return has_PropertyGroup_WithLabel;
+            }
+
+            // Is there a default convention main property group?
+            var has_PropertyGroup = this.Has_PropertyGroup_Package(
+                projectElement,
+                out var propertyGroup_Main_OrDefault);
+
+            var output = Instances.HasOperator.From(
+                propertyGroup_Main_OrDefault,
+                has_PropertyGroup);
+
+            return output;
+        }
+
+        bool Has_PropertyGroup_Package(
+            XElement projectElement,
+            out XElement propertyGroup_OrDefault)
+        {
+            // Is there a property group with a child version?
+            var has_PropertyGroup_WithChildVersion = Instances.XElementOperator.Has_ChildWithChild_First(
+                projectElement,
+                Instances.ProjectElementNames.PropertyGroup,
+                Instances.ProjectElementNames.Version,
+                out propertyGroup_OrDefault);
+
+            // Do not count any old existing property group.
+            return has_PropertyGroup_WithChildVersion;
+        }
+
+        (bool, XElement) Has_PropertyGroup_Package(
+            XElement projectElement,
+            OverloadToken<(bool, XElement)> token)
+        {
+            var exists = this.Has_PropertyGroup_Package(
+                projectElement,
+                out var propertyGroup_Main_OrDefault);
+
+            return (exists, propertyGroup_Main_OrDefault);
         }
 
         #endregion

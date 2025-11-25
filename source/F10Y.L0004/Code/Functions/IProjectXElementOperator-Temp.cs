@@ -1,9 +1,6 @@
 using System;
 using System.Xml.Linq;
 
-using F10Y.T0002;
-using F10Y.T0011;
-
 
 namespace F10Y.L0004
 {
@@ -11,15 +8,21 @@ namespace F10Y.L0004
     {
         #region Item Group - Project References
 
-        public new XElement Acquire_ItemGroup_ForProjectReferences(XElement projectElement)
+        XElement Acquire_ItemGroup(XElement projectElement)
+        => Instances.XElementOperator.Acquire_Child(
+            projectElement,
+            this.Has_ItemGroup,
+            this.Create_ItemGroup);
+
+        new XElement Acquire_ItemGroup_ForProjectReferences(XElement projectElement)
             => Instances.XElementOperator.Acquire_Child(
                 projectElement,
                 this.Has_ItemGroup_ForProjectReferences,
                 this.Create_ItemGroup_ForProjectReferences);
 
-        public XElement Create_ItemGroup_ForProjectReferences()
+        XElement Create_ItemGroup_ForProjectReferences()
         {
-            var output = Instances.XElementOperator.Create_Element(Instances.ProjectElementNames.PropertyGroup);
+            var output = Instances.XElementOperator.Create_Element(Instances.ProjectElementNames.ItemGroup);
 
             Instances.XElementOperator.Add_Attribute(
                 output,
@@ -29,7 +32,12 @@ namespace F10Y.L0004
             return output;
         }
 
-        public new For_Has.Has<XElement> Has_ItemGroup_ForProjectReferences(XElement projectElement)
+        For_Has.Has<XElement> Has_ItemGroup(XElement projectElement)
+            => Instances.XElementOperator.Has_Child(
+                projectElement,
+                Instances.ProjectElementNames.ItemGroup);
+
+        new For_Has.Has<XElement> Has_ItemGroup_ForProjectReferences(XElement projectElement)
         {
             // => This is a Functionairy convention.
             // Is there an group with the project references label?
@@ -56,7 +64,7 @@ namespace F10Y.L0004
             return output;
         }
 
-        public XElement Get_ItemGroup_ForProjectReferences(XElement projectElement)
+        XElement Get_ItemGroup_ForProjectReferences(XElement projectElement)
         {
             var has_PropertyGroup_Main = this.Has_ItemGroup_ForProjectReferences(projectElement);
 
