@@ -16,15 +16,15 @@ namespace F10Y.L0004
 
 
         [Ignore]
-        public Raw.IAuthorSets _Raw => Raw.AuthorSets.Instance;
+        Raw.IAuthorSets _Raw => Raw.AuthorSets.Instance;
 
 #pragma warning restore IDE1006 // Naming Styles
 
 
         /// <inheritdoc cref="Raw.IAuthorSets.N_001"/>
-        public string[] Default => _Raw.N_001;
+        string[] Default => _Raw.N_001;
 
-        public string[] All =>
+        string[] All =>
         [
             _Authors._1NFNTE_R0CK,
             _Authors.DCoats,

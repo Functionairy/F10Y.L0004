@@ -27,8 +27,5 @@ namespace F10Y.L0004
         new L0000.IXElementOperator _L0000 => L0000.XElementOperator.Instance;
 
 #pragma warning restore IDE1006 // Naming Styles
-
-
-        
     }
 }

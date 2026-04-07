@@ -15,14 +15,19 @@ namespace F10Y.L0004.L000
     public partial interface IFilePaths
     {
         /// <summary>
+        /// <para><value>C:\Temp\Output.json</value></para>
+        /// </summary>
+        string Output_JsonFilePath => @"C:\Temp\Output.json";
+
+        /// <summary>
         /// <para><value>C:\Temp\Output.csproj</value></para>
         /// </summary>
         string Output_ProjectFilePath => @"C:\Temp\Output.csproj";
 
         /// <summary>
-        /// <para><value>C:\Temp\Output.json</value></para>
+        /// <para><value>C:\Temp\Output.sln</value></para>
         /// </summary>
-        string Output_JsonFilePath => @"C:\Temp\Output.json";
+        string Output_SolutionFilePath => @"C:\Temp\Output.sln";
 
         /// <summary>
         /// <para><value>C:\Temp\Output.txt</value></para>

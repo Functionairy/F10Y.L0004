@@ -156,12 +156,14 @@ namespace F10Y.L0004
 
         #region Property Group - Main
 
+        /// <inheritdoc cref="IProjectGroupElementLabels.Main"/>
         new XElement Acquire_PropertyGroup_Main(XElement projectElement)
             => Instances.XElementOperator.Acquire_Child(
                 projectElement,
                 this.Has_PropertyGroup_Main,
                 this.Create_PropertyGroup_Main);
 
+        /// <inheritdoc cref="IProjectGroupElementLabels.Main"/>
         XElement Create_PropertyGroup_Main()
         {
             var output = Instances.XElementOperator.Create_Element(Instances.ProjectElementNames.PropertyGroup);
@@ -174,6 +176,7 @@ namespace F10Y.L0004
             return output;
         }
 
+        /// <inheritdoc cref="IProjectGroupElementLabels.Main"/>
         new For_Has.Has<XElement> Has_PropertyGroup_Main(XElement projectElement)
         {
             // => This is a Functionairy convention.
@@ -217,12 +220,14 @@ namespace F10Y.L0004
 
         #region PropertyGroup - Package
 
+        /// <inheritdoc cref="IProjectGroupElementLabels.Package"/>
         XElement Acquire_PropertyGroup_Package(XElement projectElement)
             => Instances.XElementOperator.Acquire_Child(
                 projectElement,
                 this.Has_PropertyGroup_Package,
                 this.Create_PropertyGroup_Package);
 
+        /// <inheritdoc cref="IProjectGroupElementLabels.Package"/>
         XElement Create_PropertyGroup_Package()
         {
             var output = Instances.XElementOperator.Create_Element(Instances.ProjectElementNames.PropertyGroup);
@@ -235,6 +240,7 @@ namespace F10Y.L0004
             return output;
         }
 
+        /// <inheritdoc cref="IProjectGroupElementLabels.Package"/>
         For_Has.Has<XElement> Has_PropertyGroup_Package(XElement projectElement)
         {
             // => This is a Functionairy convention.

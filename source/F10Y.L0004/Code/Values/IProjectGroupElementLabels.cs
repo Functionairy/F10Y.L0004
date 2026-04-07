@@ -14,21 +14,21 @@ namespace F10Y.L0004
         /// <summary>
         /// <para><value>Main</value></para>
         /// </summary>
-        public string Main => "Main";
+        string Main => "Main";
 
         /// <summary>
         /// <para><value>Package</value></para>
         /// </summary>
-        public string Package => "Package";
+        string Package => "Package";
 
         /// <summary>
         /// <para><value>Package References</value></para>
         /// </summary>
-        public string PackageReferences => "Package References";
+        string PackageReferences => "Package References";
 
         /// <summary>
         /// <para><value>"Project References"</value></para>
         /// </summary>
-        public string ProjectReferences => "Project References";
+        string ProjectReferences => "Project References";
     }
 }

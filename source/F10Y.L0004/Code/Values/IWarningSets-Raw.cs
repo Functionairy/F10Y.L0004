@@ -17,10 +17,10 @@ namespace F10Y.L0004.Raw
 
         /// <summary>
         /// <list type="bullet">
-        /// <item><inheritdoc cref="IWarnings.CS1573" path="descendant::value"/></item>
-        /// <item><inheritdoc cref="IWarnings.CS1587" path="descendant::value"/></item>
-        /// <item><inheritdoc cref="IWarnings.CS1591" path="descendant::value"/></item>
-        /// <item><inheritdoc cref="IWarnings.IDE0130" path="descendant::value"/></item>
+        /// <item><inheritdoc cref="IWarnings.CS1573" path="descendant::value"/>, <inheritdoc cref="IWarnings.CS1573" path="descendant::description"/></item>
+        /// <item><inheritdoc cref="IWarnings.CS1587" path="descendant::value"/>, <inheritdoc cref="IWarnings.CS1587" path="descendant::description"/></item>
+        /// <item><inheritdoc cref="IWarnings.CS1591" path="descendant::value"/>, <inheritdoc cref="IWarnings.CS1591" path="descendant::description"/></item>
+        /// <item><inheritdoc cref="IWarnings.IDE0130" path="descendant::value"/>, <inheritdoc cref="IWarnings.IDE0130" path="descendant::description"/></item>
         /// </list>
         /// </summary>
         public string[] N_001 =>
