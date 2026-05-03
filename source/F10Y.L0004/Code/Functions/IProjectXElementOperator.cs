@@ -227,6 +227,11 @@ namespace F10Y.L0004
                 this.Has_PropertyGroup_Package,
                 this.Create_PropertyGroup_Package);
 
+        XElement Create_ItemGroup(XElement project)
+            => Instances.XElementOperator.Create_Child_XElement(
+                project,
+                Instances.ProjectElementNames.ItemGroup);
+
         /// <inheritdoc cref="IProjectGroupElementLabels.Package"/>
         XElement Create_PropertyGroup_Package()
         {
